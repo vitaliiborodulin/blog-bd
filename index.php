@@ -2,7 +2,6 @@
 
 session_start();
 
-include_once('m/db.php');
 include_once('m/auth.php');
 include_once('m/messages.php');
 
@@ -28,7 +27,7 @@ if (isset($_GET['msg'])) {
     }
 }
 
-$messages = messagesAll();
+$messages = messages_all();
 
 include 'v/v_index.php';
 
