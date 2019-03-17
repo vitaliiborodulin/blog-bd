@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 //сбросили сессию
 if (isset($_SESSION)) {
     unset($_SESSION['isAuth']);
@@ -37,15 +35,9 @@ if (count($_POST) > 0) {
     $msg = 'Введите логин и пароль';
 }
 
-?>
+$inner = template('v_login', [
+    'msg' => $msg
+]);
 
-<form class="box" method="post">
-    <h1>Login</h1>
-    <p><?php echo $msg; ?></p>
-    <p><input type="text" name="user"></p>
-    <p><input type="password" name="password"></p>
-    <p><input type="checkbox" name="remember"> Запомнить </p>
-    <input type="submit" value="Login">
-    <hr>
-    <a href="index.php">На главную</a>
-</form>
+$title = 'Войти на сайт';
+

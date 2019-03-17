@@ -1,34 +1,18 @@
 <?php
 
+include_once('m/messages.php');
+include_once('m/system.php');
+include_once('m/auth.php');
+include_once('m/misc.php');
+
 session_start();
 
-include_once('m/auth.php');
-include_once('m/messages.php');
+//добавить проверки
+$controller = $_GET['c'] ?? 'home';
+include_once "c/$controller.php";
 
-
-$isAuth = isAuth();
-
-if ($isAuth) {
-    $user = 'Админ';
-} else {
-    $user = 'Аноним';
-}
-
-$msg = '';
-if (isset($_GET['msg'])) {
-    if ($_GET['msg'] == 'addOk') {
-        $msg = 'Статья успешно добавлена!';
-    } elseif ($_GET['msg'] == 'editOk') {
-        $msg = 'Статья успешно отредактирована!';
-    } elseif ($_GET['msg'] == 'delOk') {
-        $msg = 'Статья успешно удалена!';
-    } elseif ($_GET['msg'] == 'noAuth') {
-        $msg = 'Зарегистрируйтесь для добавления/изменения статьи!';
-    }
-}
-
-$messages = messages_all();
-
-include 'v/v_index.php';
-
+echo template('v_main', [
+    'title' => $title,
+    'content' => $inner
+]);
 

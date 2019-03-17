@@ -1,9 +1,5 @@
 <?php
 
-include_once('m/messages.php');
-include_once('m/misc.php');
-
-
 $id = $_GET['id'] ?? null;
 $err404 = false;
 
@@ -18,7 +14,12 @@ if (!check_id($id)) {
 //    echo nl2br($message['content']);
 }
 
+$inner = template('v_post', [
+    'err404' => $err404,
+    'message' => $message ?? null
 
-include 'v/v_post.php';
+]);
+
+$title = 'Просмотр сообщения';
 
 
