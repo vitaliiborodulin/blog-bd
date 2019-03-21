@@ -25,7 +25,7 @@ if (count($_POST) > 0) {
             setcookie('password', hash('sha256', 'qwerty'), time() + 3600 * 7 * 24, '/');
         }
 
-        header('Location:index.php');
+        header('Location:' . ROOT);
 
     } else {
         $msg = 'Неверный логин или пароль';

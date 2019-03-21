@@ -1,9 +1,9 @@
 <?php
 
-$id = $_GET['id'] ?? null;
-$err404 = false;
+$id = $params[1] ?? null;
+//$err404 = false;
 
-if (!check_id($id)) {
+if ($id === null || $id == '' || !ctype_digit($id)) {
     $err404 = true;
 } else {
     $message = messages_one($id);
@@ -14,12 +14,14 @@ if (!check_id($id)) {
 //    echo nl2br($message['content']);
 }
 
-$inner = template('v_post', [
-    'err404' => $err404,
-    'message' => $message ?? null
+if (!$err404) {
 
-]);
+    $title = 'Просмотр сообщения';
+    $inner = template('v_post', [
+        'message' => $message ?? null
+    ]);
+}
 
-$title = 'Просмотр сообщения';
+
 
 

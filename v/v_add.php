@@ -17,4 +17,4 @@
     <?= $msg; ?>
 </div>
 <hr>
-<a href="index.php">На главную</a>
+<a href="<?=ROOT ?>">На главную</a>

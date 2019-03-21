@@ -2,19 +2,19 @@
 
 
 if (!isAuth()) {
-    header('Location: index.php?c=login');
+    header("Location:" . ROOT . "login");
     exit();
 }
 
-$id = $_GET['id'] ?? null;
-$err404 = false;
+$id = $params[1] ?? null;
+//$err404 = false;
 
-if (!check_id($id)) {
+if ($id === null || $id == '' || !ctype_digit($id)) {
     $err404 = true;
 } else {
     messages_delete($id);
 
-    header('Location: index.php?msg=delOk');
+    header("Location:" . ROOT . "?msg=delOk");
     exit();
 }
 

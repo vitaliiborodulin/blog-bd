@@ -1,16 +1,16 @@
 <?php
 
 if (!isAuth()) {
-    header('Location: index.php?c=login');
+    header("Location:" . ROOT . "login");
     exit();
 }
 
-$id = $_GET['id'] ?? null;
+$id = $params[1] ?? null;
 $msg = '';
-$err404 = false;
+//$err404 = false;
 
 
-if (!check_id($id)) {
+if ($id === null || $id == '' || !ctype_digit($id)) {
     $err404 = true;
 }
 
@@ -22,9 +22,8 @@ if (count($_POST) > 0) {
         $msg = 'Поля не должны быть пустыми';
     } else {
 
-        $message = messages_update($title,$content,$id);
-
-        header('Location: index.php?msg=editOk');
+        $message = messages_update($title, $content, $id);
+        header("Location:" . ROOT . "?msg=editOk");
         exit();
     }
 

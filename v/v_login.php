@@ -6,5 +6,5 @@
     <p><input type="checkbox" name="remember"> Запомнить </p>
     <input type="submit" value="Login">
     <hr>
-    <a href="index.php">На главную</a>
+    <a href="<?= ROOT ?>">На главную</a>
 </form>

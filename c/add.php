@@ -1,7 +1,7 @@
 <?php
 
 if (!isAuth()) {
-    header('Location: index.php?c=login');
+    header("Location:" . ROOT . "login");
     exit();
 }
 
@@ -14,7 +14,7 @@ if (count($_POST) > 0) {
     } else {
 
         $id = messages_add($title, $content);
-        header("Location: index.php?c=post&id=$id");
+        header("Location:" . ROOT. "post/$id");
         exit();
     }
 

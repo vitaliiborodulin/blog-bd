@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<link href="assests/css/styles.css" rel="stylesheet" type="text/css">
+	<link href="<?=ROOT?>assests/css/styles.css" rel="stylesheet" type="text/css">
 	<title><?=$title?></title>
 </head>
 <body>
@@ -75,7 +75,7 @@
 			</div>
 		</footer>
 	</div>	
-	<script src="assests/js/jquery-1.11.0.min.js" type="text/javascript"></script>
-	<script src="assests/js/scripts.js" type="text/javascript"></script>
+	<script src="<?=ROOT?>assests/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+	<script src="<?=ROOT?>assests/js/scripts.js" type="text/javascript"></script>
 </body>
 </html>
